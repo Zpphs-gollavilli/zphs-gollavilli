@@ -69,52 +69,6 @@ body {
     font-size: 16px;
 }
 
-/* Hide navigation menu and show hamburger menu button on small screens */
-@media all and (max-width: 600px) {
-    .header-fixed {
-        padding: 10px 20px;
-    }
-
-    .nav-toggle {
-        display: block;
-        background: none;
-        border: none;
-        font-size: 24px;
-        color: #ffffff;
-        cursor: pointer;
-    }
-
-    .header-fixed nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #034b20;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 10px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .header-fixed nav ul {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .header-fixed nav ul li {
-        margin: 10px 0;
-    }
-
-    .header-fixed nav ul li a {
-        font-size: 18px;
-    }
-
-    .header-fixed nav.active {
-        display: flex;
-    }
-}
-
 
 
 body {
@@ -207,7 +161,7 @@ nav ul li a:hover {
 
 .video-container {
     width: 100%;
-    height: 0;
+    height: auto;
     padding-bottom: 56.25%; 
     position: relative;
 }
@@ -503,3 +457,85 @@ footer {
     border-top: 1px solid #ddd;
 }
 
+
+/* Hide navigation menu and show hamburger menu button on small screens */
+@media all and (max-width: 600px) {
+    .header-fixed {
+        padding: 10px 20px;
+    }
+
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+    .header-fixed nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #034b20;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 10px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-fixed nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .header-fixed nav ul li {
+        margin: 10px 0;
+    }
+
+    .header-fixed nav ul li a {
+        font-size: 18px;
+    }
+
+    .header-fixed nav.active {
+        display: flex;
+    }
+    .banner {
+        flex: 0 0 100%; /* 45% width for each banner on small screens */
+        max-width: 100%; /* Ensure each banner doesn't exceed 45% width */
+        height: 40vh; /* Adjust height as needed */
+    }
+    .video-container {
+        width: 100%;
+        height: 40vh;
+        /* padding-bottom: 56.25%;  */
+        
+    }
+    
+    .video-container iframe {
+        /* position: absolute; */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    #filters {
+        text-align: left; /* Align text to the left for better readability */
+    }
+
+    #filters label, 
+    #filters select {
+        display: block; /* Stack filters vertically */
+        width: 100%; /* Make each element take the full width of the container */
+        margin-right: 0; /* Remove the right margin */
+        margin-bottom: 10px; /* Add space between stacked elements */
+    }
+
+    #filters select {
+        font-size: 16px; /* Maintain font size for readability */
+        padding: 10px; /* Add padding for a more touch-friendly UI */
+    }
+}

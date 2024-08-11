@@ -1,47 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-}
 
-.banner-container {
-     display: flex;
-    justify-content: space-between;
-    padding: 20px;
-
-}
-.banner {
-    position: relative;
-    text-align: center;
-    color: white;
-    width: 48%; /* Adjust the width as necessary */
-}
-
-.banner img {
-    width: 100%;
-    height: 350px;
-}
-
-.banner-text {
+/* canvas {
     position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; 
+    z-index: 3; 
+    pointer-events: none; 
+
+} */
+
+
+.header-fixed {
+    background: linear-gradient(90deg, #001709, #0a5528); /* Gradient from left to right */
+    box-shadow: 0 1px 1px #ccc;
+    padding: 20px 40px;
+    height: 50px;
+    color: #ffffff;
+    box-sizing: border-box;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    transition: top 0.3s;
 }
+
+
+.header-fixed .header-limiter {
+	max-width: 1200px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+
+
+.header-fixed-placeholder{
+	height: 60px;
+	display: none;
+}
+
+
+
+.header-fixed .header-limiter h1 {
+	float: left;
+	font: normal 28px Cookie, Arial, Helvetica, sans-serif;
+	line-height: 10px;
+	margin: 0;
+}
+
+.header-fixed .header-limiter h1 span {
+	color: #5383d3;
+}
+
+
+.header-fixed .header-limiter a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.header-fixed .header-limiter nav {
+	font:16px Arial, Helvetica, sans-serif;
+	line-height: 5px;
+	float: right;
+}
+
+.header-fixed .header-limiter nav a{
+	display: inline-block;
+	padding: 0 5px;
+	text-decoration:none;
+	color: #ffffff;
+	opacity: 0.9;
+}
+
+.header-fixed .header-limiter nav a:hover{
+	opacity: 1;
+}
+
+.header-fixed .header-limiter nav a.selected {
+	color: #608bd2;
+	pointer-events: none;
+	opacity: 1;
+}
+
+
+
+body.fixed .header-fixed {
+	padding: 10px 40px;
+	height: 50px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+body.fixed .header-fixed-placeholder {
+	display: block;
+}
+
+body.fixed .header-fixed .header-limiter h1 {
+	font-size: 24px;
+	line-height: 30px;
+}
+
+body.fixed .header-fixed .header-limiter nav {
+	line-height: 28px;
+	font-size: 13px;
+}
+
+
+
+
+@media all and (max-width: 600px) {
+
+	.header-fixed {
+		padding: 20px 0;
+		height: 75px;
+	}
+
+	.header-fixed .header-limiter h1 {
+		float: none;
+		margin: -8px 0 10px;
+		text-align: center;
+		font-size: 24px;
+		line-height: 1;
+	}
+
+	.header-fixed .header-limiter nav {
+		line-height: 1;
+		float:none;
+	}
+
+	.header-fixed .header-limiter nav a {
+		font-size: 13px;
+	}
+
+	body.fixed .header-fixed {
+		display: none;
+	}
+
+}
+
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 1500px;
+}
+
 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    list-style: none;
     display: flex;
     justify-content: center;
+    margin-top: 10px;
 }
 
 nav ul li {
@@ -51,24 +176,183 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+.message-adv{
+    position: relative;
+    animation: fade-effect 2s linear 0s 1 alternate none;
+    z-index: 1; 
+  
+}
+
+@keyframes fade-effect
+{
+  0% { opacity: 0%; }
+  100% { opacity: 100%; }
+}
+
+.flag-container {
+    position: relative; 
+    z-index: 2; 
+}
+
+.flag {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.stripe {
+    height: 100px;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.white {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.green {
+    background-color: green;
+}
+
+.ashok-chakra {
+    max-height: 60px;
+    animation: rotate 6s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#sign {
+    margin-top: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #144615;
+}
+
+.video-container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; 
+    position: relative;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.banner-container {
+    display: flex;
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f4f4f4; 
+}
+
+.banner-container::-webkit-scrollbar {
+    height: 8px; 
+}
+
+.banner-container::-webkit-scrollbar-thumb {
+    background-color: #888; 
+    border-radius: 10px;
+}
+
+.banner-container::-webkit-scrollbar-track {
+    background-color: #f4f4f4; 
+}
+
+.banner {
+    flex: 0 0 30%;
+    max-width: 30%; 
+    scroll-snap-align: start; 
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 section {
     padding: 20px;
-    margin: 20px;
-    background-color: white;
-    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-footer {
+h2 {
+    color: #144615;
+    font-size: 28px;
+    margin-bottom: 15px;
     text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    position: relative;
+}
+
+table {
     width: 100%;
-    bottom: 0;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #144615;
+    color: white;
+}
+
+
+.testimonial, .achievement {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 form {
@@ -77,306 +361,184 @@ form {
 }
 
 form label {
-    margin: 10px 0 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-form input, form textarea {
+form input, form textarea, form button {
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+    margin-bottom: 15px;
     border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
 }
 
 form button {
-    padding: 10px;
-    background-color: #333;
+    background-color: #144615;
     color: white;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
+    border: none;
 }
 
 form button:hover {
-    background-color: #555;
+    background-color: #45a049;
 }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #144615;
+    color: white;
+    margin-top: 40px;
+} 
+.message-adv {
+    position: relative; /* Position it relative to the nearest positioned ancestor */
+    top: auto;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 9; /* Ensure it is below the header (z-index 10) */
+}
+/* Sharing Notes Section Styling */
+#sharing-notes {
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#sharing-notes h2 {
+    color: #144615;
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#sharing-notes p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #555;
+}
+
+#filters {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#filters label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#filters select {
+    padding: 5px;
+    margin-right: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+#pdfList h3 {
+    font-size: 20px;
+    color: #144615;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#pdfList table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#pdfList table th, 
+#pdfList table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#pdfList table th {
+    background-color: #144615;
+    color: white;
+    text-align: center;
+}
+
+#pdfList table td a {
+    text-decoration: none;
+    color: #1c6c1d;
+}
+
+#pdfList table td a:hover {
+    text-decoration: underline;
+    color: #10a94d;
+}
+
 /* Meal Schedule Section */
 #meal-schedule {
     padding: 20px;
-    margin: 20px auto; /* Centering the section */
-    background-color: white;
-    border-radius: 5px;
+    background-color: #fff;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px; /* Optional: limits the width of the section */
+    max-width: 800px;
+    margin: 0 auto;
+   
 }
 
 #meal-schedule h2 {
+    font-size: 28px;
+    color: #034b20;
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
 }
 
-#meal-schedule table {
+.meal-schedule-table {
     width: 100%;
-    border-collapse: collapse; /* Combines borders of adjacent cells */
-    margin: 0 auto; /* Centers the table */
-    background-color: #f4f4f4;
-    border-radius: 5px;
-}
-
-#meal-schedule th, #meal-schedule td {
-    padding: 15px;
+    border-collapse: collapse;
     text-align: left;
-    border: 1px solid #ddd; /* Adds borders around cells */
+    margin-bottom: 20px;
 }
 
-#meal-schedule th {
-    background-color: #333;
+.meal-schedule-table thead {
+    background-color: #144615;
     color: white;
 }
 
-#meal-schedule tr:hover {
-    background-color: #f1f1f1;
-}
-
-#meal-schedule tr:last-child td {
-    border-bottom: none;
-    text-align: center;
-}
-/* Modal Styling */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-}
-
-.modal-content {
-    position: relative;
-    margin: 15% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 600px;
-    background-color: white;
-    border-radius: 5px;
+.meal-schedule-table thead th {
+    padding: 10px;
+    font-size: 18px;
     text-align: center;
 }
 
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+.meal-schedule-table tbody tr {
+    border-bottom: 1px solid #ddd;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-
-#meal-schedule tr:nth-child(7) {
-    background-color: #d4edda; /* Light green background for Saturday */
-    color: #155724; /* Dark green text color */
-}
-
-#meal-schedule tr:nth-child(7):hover {
-    background-color: #c3e6cb; /* Slightly darker green on hover */
-}
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body Styling */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-    padding: 20px;
-}
-
-/* Header */
-header {
-    text-align: center;
-    padding: 20px;
-    background-color: #28a745;
-    color: white;
-}
-
-/* Section Styling */
-section {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Image Styling */
-section img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px 0;
-}
-
-/* Testimonials Styling */
-#testimonials .testimonial {
-    background-color: #d4edda;
+.meal-schedule-table tbody td {
     padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-#testimonials .achievement h3 {
-    margin-bottom: 10px;
-}
-
-#testimonials ul {
-    list-style-type: disc;
-    margin-left: 20px;
-}
-
-#testimonials li {
-    margin-bottom: 5px;
-}
-/* Basic Modal Styles */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-}
-
-.modal-content {
-    position: relative;
-    margin: 15% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 600px;
-    background-color: white;
-    border-radius: 5px;
+    font-size: 16px;
     text-align: center;
-    opacity: 0;
-    transform: scale(0.9);
-    animation: fadeInUp 0.5s forwards;
+    vertical-align: middle;
 }
 
-/* Close Button */
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+.meal-schedule-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.meal-schedule-table tbody tr:nth-child(odd) {
+    background-color: #f4f4f4;
 }
 
-/* Flag Image Styling */
-.flag-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-/* Keyframes for Animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-/* Basic Modal Styles */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000; /* Ensure modal is above other content */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-    /* Ensure it covers the entire viewport */
-}
-
-.modal-content {
-    position: relative;
-    margin: 15% auto; /* Center the modal horizontally and adjust vertical margin */
-    padding: 20px;
-    width: 80%;
-    max-width: 600px;
-    background-color: white;
-    border-radius: 5px;
+.meal-schedule-table .note {
     text-align: center;
-    opacity: 0;
-    transform: scale(0.9);
-    animation: fadeInUp 0.5s forwards; /* Animation for the popup */
+    font-style: italic;
+    color: #555;
+    font-size: 14px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-top: 1px solid #ddd;
 }
 
-/* Close Button */
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Flag Image Styling */
-.flag-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-/* Keyframes for Animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}

@@ -239,6 +239,16 @@
         });
     }
 
+    document.addEventListener("DOMContentLoaded", function() {
+        var navToggle = document.querySelector('.nav-toggle');
+        var nav = document.querySelector('nav');
+        if (navToggle) {
+        navToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+        });
+    }});
+    
+
     document.getElementById('contactForm').addEventListener('submit', function(event) {
         event.preventDefault();
     

@@ -210,57 +210,62 @@
 //     render();
 // }, 500);
 
+// Filtering notes based on class, subject, and lesson
+document.getElementById('classFilter').addEventListener('change', filterNotes);
+document.getElementById('subjectFilter').addEventListener('change', filterNotes);
+document.getElementById('lessonFilter').addEventListener('change', filterNotes);
 
-    document.getElementById('classFilter').addEventListener('change', filterNotes);
-    document.getElementById('subjectFilter').addEventListener('change', filterNotes);
-    document.getElementById('lessonFilter').addEventListener('change', filterNotes);
+function filterNotes() {
+    const classFilter = document.getElementById('classFilter').value.toLowerCase();
+    const subjectFilter = document.getElementById('subjectFilter').value.toLowerCase();
+    const lessonFilter = document.getElementById('lessonFilter').value.toLowerCase();
 
-    function filterNotes() {
-        const classFilter = document.getElementById('classFilter').value.toLowerCase();
-        const subjectFilter = document.getElementById('subjectFilter').value.toLowerCase();
-        const lessonFilter = document.getElementById('lessonFilter').value.toLowerCase();
+    const rows = document.querySelectorAll('#pdfList tbody tr');
 
-        const rows = document.querySelectorAll('#pdfList tbody tr');
+    rows.forEach(row => {
+        const className = row.getAttribute('data-class').toLowerCase();
+        const subjectName = row.getAttribute('data-subject').toLowerCase();
+        const lessonName = row.getAttribute('data-lesson').toLowerCase();
 
-        rows.forEach(row => {
-            const className = row.getAttribute('data-class').toLowerCase();
-            const subjectName = row.getAttribute('data-subject').toLowerCase();
-            const lessonName = row.getAttribute('data-lesson').toLowerCase();
+        if (
+            (classFilter === 'all' || className === classFilter) &&
+            (subjectFilter === 'all' || subjectName === subjectFilter) &&
+            (lessonFilter === 'all' || lessonName === lessonFilter)
+        ) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
 
-            if (
-                (classFilter === 'all' || className === classFilter) &&
-                (subjectFilter === 'all' || subjectName === subjectFilter) &&
-                (lessonFilter === 'all' || lessonName === lessonFilter)
-            ) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        var navToggle = document.querySelector('.nav-toggle');
-        var nav = document.querySelector('nav');
-        if (navToggle) {
+// Toggle navigation
+document.addEventListener("DOMContentLoaded", function() {
+    var navToggle = document.querySelector('.nav-toggle');
+    var nav = document.querySelector('nav');
+    if (navToggle) {
         navToggle.addEventListener('click', function() {
             nav.classList.toggle('active');
         });
-    }});
-    
+    }
+});
 
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-    
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-    
-        alert(`Thank you, ${name}! Your message has been received.`);
-        // Further logic for form submission can be added here
-    });
-    
-    document.getElementById('nav-toggle').addEventListener('click', function() {
-        var navLinks = document.getElementById('nav-links');
-        navLinks.classList.toggle('active');
-    });
+// Initialize EmailJS
+(function(){
+    emailjs.init("eFFnvBh7YKicvN14v"); // Replace with your actual EmailJS user ID
+})();
+
+// Handle contact form submission
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+    console.log("Form submission started...");
+
+    emailjs.sendForm('service_k0zoxi9', 'template_rcmaf84', this)
+        .then(function() {
+            console.log('Email sent successfully');
+            alert('Your message has been sent!');
+        }, function(error) {
+            console.error('FAILED...', error);
+            alert('Failed to send the message. Please try again.');
+        });
+});

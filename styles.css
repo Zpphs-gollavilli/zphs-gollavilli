@@ -586,7 +586,7 @@ footer {
 /* Mobile-specific styles */
 @media (max-width: 768px) {
     .news-heading {
-        font-size: 6vw; /* Increases font size for smaller screens */
+        font-size: 5vw; /* Increases font size for smaller screens */
     }
 
     .image-container {

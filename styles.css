@@ -11,6 +11,10 @@ body {
     line-height: 1.6;
 }
 
+.table-responsive {
+    overflow-x: auto; /* Enables horizontal scrolling on small screens */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile devices */
+}
 
 /* canvas {
     position: absolute;

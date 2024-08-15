@@ -592,6 +592,7 @@ footer {
     .image-container {
         padding: 5px; /* Reduces padding on smaller screens */
         max-width: 100%; /* Ensures the container fits within the screen width */
+	   margin: 10px;
     }
 
     .image-container img {

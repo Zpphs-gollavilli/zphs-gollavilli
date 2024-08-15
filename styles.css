@@ -11,10 +11,6 @@ body {
     line-height: 1.6;
 }
 
-.table-responsive {
-    overflow-x: auto; /* Enables horizontal scrolling on small screens */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile devices */
-}
 
 /* canvas {
     position: absolute;
@@ -246,6 +242,10 @@ h2 {
     font-size: 28px;
     margin-bottom: 15px;
     text-align: center;
+}
+.table-responsive {
+    overflow-x: auto; /* Enables horizontal scrolling on small screens */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile devices */
 }
 
 table {
@@ -557,7 +557,6 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     letter-spacing: 1px;
 }
-
 /* General Styles */
 .news-heading {
     font-size: 4vw; /* Responsive font size based on viewport width */
@@ -570,32 +569,35 @@ footer {
     display: flex;
     justify-content: center; /* Centers the image horizontally */
     align-items: center; /* Centers the image vertically within its container */
-    overflow: hidden; /* Prevents overflow */
-    max-width: 100%; /* Ensures the container fits within the screen width */
+    padding: 10px; /* Adds some padding around the image */
+    overflow: hidden; /* Ensures the image doesn't overflow its container */
+    max-width: 100%; /* Ensures the container doesn't exceed the screen width */
+    margin: 10px;
 }
 
 .image-container img {
-    width: 100%; /* Ensures the image scales to fit within the container */
-    height: auto; /* Maintains the aspect ratio */
+    width: auto; /* Ensures the width adjusts based on the height */
+    height: 100%; /* Adjusts the height to fit the container */
+    max-width: 100%; /* Prevents the image from exceeding the container's width */
     object-fit: contain; /* Ensures the image is fully visible without cropping */
+    transform: rotate(90deg); /* Rotates the image by 90 degrees clockwise */
 }
 
 /* Mobile-specific styles */
 @media (max-width: 768px) {
     .news-heading {
-        font-size: 6vw; /* Adjusts font size for smaller screens */
+        font-size: 7vw; /* Increases font size for smaller screens */
     }
 
     .image-container {
-        padding: 10px; /* Adds padding around the image */
+        padding: 5px; /* Reduces padding on smaller screens */
         max-width: 100%; /* Ensures the container fits within the screen width */
     }
 
     .image-container img {
+        height: auto; /* Resets height to maintain aspect ratio */
         width: 100%; /* Ensures the image scales to fit within the screen */
-        height: auto; /* Maintains aspect ratio */
-        object-fit: contain; /* Ensures the image is fully visible without cropping */
+        max-width: 70%; /* Prevents the image from exceeding the container's width */
+        object-fit: contain; /* Ensures the image is fully visible on small screens */
     }
 }
-
-

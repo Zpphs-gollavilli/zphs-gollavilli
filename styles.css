@@ -553,3 +553,13 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     letter-spacing: 1px;
 }
+
+.image-container {
+    flex: 1;
+}
+
+.image-container img {
+    transform: rotate(90deg); /* Rotates the image by 90 degrees clockwise */
+    max-width: 100%; /* Ensures the image scales properly */
+    height: auto;
+}

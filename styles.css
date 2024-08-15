@@ -554,16 +554,47 @@ footer {
     letter-spacing: 1px;
 }
 
+/* General Styles */
+.news-heading {
+    font-size: 4vw; /* Responsive font size based on viewport width */
+    text-align: center; /* Centers the heading */
+    margin: 20px 0; /* Adds some space above and below the heading */
+    color: #333; /* Text color */
+}
+
 .image-container {
     display: flex;
     justify-content: center; /* Centers the image horizontally */
-    align-items: center; /* Centers the image vertically */
-    height: 100vh; /* Full viewport height */
+    align-items: center; /* Centers the image vertically within its container */
+    padding: 10px; /* Adds some padding around the image */
+    overflow: hidden; /* Ensures the image doesn't overflow its container */
+    max-width: 100%; /* Ensures the container doesn't exceed the screen width */
 }
 
 .image-container img {
+    width: auto; /* Ensures the width adjusts based on the height */
+    height: 100%; /* Adjusts the height to fit the container */
+    max-width: 100%; /* Prevents the image from exceeding the container's width */
+    object-fit: contain; /* Ensures the image is fully visible without cropping */
     transform: rotate(90deg); /* Rotates the image by 90 degrees clockwise */
-    max-width: 100%; /* Ensures the image scales within the width of its container */
-    max-height: 100%; /* Ensures the image scales within the height of its container */
-    object-fit: contain; /* Keeps the aspect ratio intact */
 }
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .news-heading {
+        font-size: 6vw; /* Increases font size for smaller screens */
+    }
+
+    .image-container {
+        padding: 5px; /* Reduces padding on smaller screens */
+        max-width: 100%; /* Ensures the container fits within the screen width */
+    }
+
+    .image-container img {
+        height: auto; /* Resets height to maintain aspect ratio */
+        width: 100%; /* Ensures the image scales to fit within the screen */
+        max-width: 70%; /* Prevents the image from exceeding the container's width */
+        object-fit: contain; /* Ensures the image is fully visible on small screens */
+    }
+}
+

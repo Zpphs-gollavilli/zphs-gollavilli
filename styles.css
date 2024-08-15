@@ -593,7 +593,7 @@ footer {
     .image-container img {
         height: auto; /* Resets height to maintain aspect ratio */
         width: 100%; /* Ensures the image scales to fit within the screen */
-        max-width: 65%; /* Prevents the image from exceeding the container's width */
+        max-width: 80%; /* Prevents the image from exceeding the container's width */
         object-fit: contain; /* Ensures the image is fully visible on small screens */
     }
 }

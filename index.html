@@ -112,63 +112,7 @@
                 <!-- Add more classes as needed -->
             </select>
             <script>
-    const classFilter = document.getElementById('classFilter');
-    const subjectFilter = document.getElementById('subjectFilter');
-    const lessonFilter = document.getElementById('lessonFilter');
-    const tableRows = document.querySelectorAll('tbody tr');
-
-    classFilter.addEventListener('change', filterNotes);
-    subjectFilter.addEventListener('change', filterNotes);
-    lessonFilter.addEventListener('change', filterNotes);
-
-    function filterNotes() {
-        const selectedClass = classFilter.value.toLowerCase();
-        const selectedSubject = subjectFilter.value.toLowerCase();
-        const selectedLesson = lessonFilter.value.toLowerCase();
-
-        tableRows.forEach(row => {
-            const rowClass = row.dataset.class.toLowerCase();
-            const rowSubject = row.dataset.subject.toLowerCase();
-            const rowLesson = row.dataset.lesson.toLowerCase();
-
-            const matchesClass = selectedClass === 'all' || rowClass === selectedClass;
-            const matchesSubject = !selectedSubject || rowSubject === selectedSubject;
-            const matchesLesson = !selectedLesson || rowLesson.includes(selectedLesson);
-
-            if (matchesClass && matchesSubject && matchesLesson) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
-
-        updateSubjectFilter();
-    }
-
-    function updateSubjectFilter() {
-        const selectedClass = classFilter.value;
-        const subjects = new Set();
-
-        tableRows.forEach(row => {
-            if (row.dataset.class === selectedClass || selectedClass === 'all') {
-                subjects.add(row.dataset.subject);
-            }
-        });
-
-        subjectFilter.innerHTML = '<option value="">All Subjects</option>';
-        subjects.forEach(subject => {
-            const option = document.createElement('option');
-            option.value = subject;
-            option.textContent = subject;
-            subjectFilter.appendChild(option);
-        });
-    }
-
-    // Initial population of subject filter
-    updateSubjectFilter();
-</script>
-</body>
-</html>
+    
 
             <label for="subjectFilter">Subject:</label>
             <select id="subjectFilter">
